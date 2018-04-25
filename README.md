@@ -19,3 +19,5 @@ git clone git@github.com:juanpablocs/dotfiles.git && bash ./dotfiles/install.sh
 - gitk
 - ubuntu tweak
 - theme flatbulous
+
+credits: https://github.com/jansanchez/dotfiles
