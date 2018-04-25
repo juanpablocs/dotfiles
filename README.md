@@ -20,4 +20,4 @@ git clone git@github.com:juanpablocs/dotfiles.git && bash ./dotfiles/install.sh
 - ubuntu tweak
 - theme flatbulous
 
-credits: https://github.com/jansanchez/dotfiles
+Thanks https://github.com/jansanchez/dotfiles
