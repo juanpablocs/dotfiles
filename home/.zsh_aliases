@@ -2,24 +2,13 @@
 # ~/.bash_aliases
 
 #aliases for git
-alias difference='git gui'
-alias last="git log -1 HEAD --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+alias gdiff='git gui'
+alias glast="git log -1 HEAD --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias gusers="git log --format='%aN' | sort -u"
-alias chat='echo " > sudo nc -vlp 23" && sudo nc -vlp 23'
-alias starcraft='wine ~/games/SC1.16/StarCraft.exe'
 
 # alises for off/reset of linux system
 alias	off='sudo halt'
 alias	reset='sudo reboot'
-
-function restart() {
-	echo " > sudo service $1 restart"
-	sudo service $1 restart
-}
-
-# programs
-alias firefox="firefox &"
-alias chrome="google-chrome &"
 
 # network
 alias redes='nmcli r'
@@ -27,36 +16,16 @@ alias devices='nmcli dev'
 alias conectar='nmcli r wifi on'
 alias desconectar='nmcli r wifi off'
 
-function wifi() {
-	nmcli dev wifi connect $1 password $2
-}
-
 # general shortcuts
-alias pro="cd ~/projects/"
+alias pro="cd ~/Projects/"
 
 # List only directories
 alias lsd='ls -l | grep "^d"'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
+alias iplocal="ifconfig | egrep -o 'addr:([[:digit:]]{1,3}\.){3}[[:digit:]]{1,3}' | egrep -o '[[:digit:]].*'"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
-
-# Enhanced WHOIS lookups
-alias whois="whois -h whois-servers.net"
-
-# Flush Directory Service cache
-alias flush="dscacheutil -flushcache"
-
-# View HTTP traffic
-alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'" # sudo apt-get install ngrep
-alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-
-# File size
-alias fs="stat -f \"%z bytes\""
-
-# ROT13-encode text. Works for decoding, too! ;)
-alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 
 alias home='cd ~/'
 
@@ -70,6 +39,19 @@ alias yt='ytmp4 --write-auto-sub --convert-subs srt '
 
 alias dps='docker ps'
 
+function wifi() {
+	nmcli dev wifi connect $1 password $2
+}
+
+function restart() {
+	echo " > sudo service $1 restart"
+	sudo service $1 restart
+}
+
+function chrome() {
+	google-chrome $1
+}
+
 function jira() {
-	google-chrome https://orbisunt.atlassian.net/browse/$1
+	chrome https://orbisunt.atlassian.net/browse/$1
 }
