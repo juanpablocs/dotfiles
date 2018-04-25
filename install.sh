@@ -17,27 +17,28 @@ sudo apt-get install -y nodejs
 
 echo "Instalando zsh y theme"
 sudo apt-get install -y zsh
-chsh -s /bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 echo "Instalando meld y gitk"
 sudo apt-get install -y meld gitk
 
 echo "Instalando ubuntu tweak"
-wget -q -O - http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add -
+wget -qO - http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add -
 sudo sh -c 'echo "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" >> /etc/apt/sources.list.d/getdeb.list'
 sudo apt-get update
 sudo apt-get install ubuntu-tweak
 
 echo "Instalando theme flatbulous"
 sudo add-apt-repository ppa:noobslab/themes
-sudo apt-get update
-sudo apt-get install flatabulous-theme
-
-echo "instalando flat icons"
 sudo add-apt-repository ppa:noobslab/icons
 sudo apt-get update
-sudo apt-get install ultra-flat-icons
+sudo apt-get install -y flatabulous-theme ultra-flat-icons
+
+echo "Instalando dock Plank"
+sudo apt-get install -y plank
 
 echo "copying dotfiles"
 cp -r ./dotfiles/home/. ${HOME}
+
+#change session zsh
+sudo chsh -s /bin/zsh
