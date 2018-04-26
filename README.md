@@ -7,7 +7,7 @@ sudo apt-get update && sudo apt-get install -y git-core
 ```
 clone and install
 ```bash
-git clone git@github.com:juanpablocs/dotfiles.git && bash ./dotfiles/install.sh
+git clone https://github.com/juanpablocs/dotfiles.git && bash ./dotfiles/install.sh
 ```
 
 ### What's inside?
